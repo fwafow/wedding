@@ -27,7 +27,7 @@ function Comment() {
     // const [copySuccess, setCopySuccess] = useState(false);
 
     // API 기본 URL
-    const API_BASE_URL = 'http://192.168.0.124:5005/api';
+    const API_BASE_URL = 'http://121.141.69.93:5005/api';
 
     // IntersectionObserver 설정
     useEffect(() => {
