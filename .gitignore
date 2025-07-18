@@ -31,3 +31,7 @@ Thumbs.db
 
 # Server (자체 구현 서버)
 /server/
+
+# Large files and downloads
+*.crdownload
+*.zip
