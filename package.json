@@ -21,11 +21,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "GENERATE_SOURCEMAP=false NODE_OPTIONS=--max-old-space-size=4096 react-scripts build",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && set \"NODE_OPTIONS=--max-old-space-size=4096\" && react-scripts build",
+    "build:netlify": "GENERATE_SOURCEMAP=false react-scripts build",
     "build:light": "GENERATE_SOURCEMAP=false node --max-old-space-size=256 node_modules/.bin/react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build:light",
+    "predeploy": "npm run build:netlify",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
