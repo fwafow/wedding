@@ -54,11 +54,6 @@ function ImagePopup({ isOpen, currentImage, images, currentIndex, setCurrentInde
     };
 
     // 캡처 방지 이벤트 핸들러들
-    const preventCapture = (e) => {
-      e.preventDefault();
-      return false;
-    };
-
     const preventContextMenu = (e) => {
       e.preventDefault();
       return false;
