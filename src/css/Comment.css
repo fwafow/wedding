@@ -1,0 +1,387 @@
+/* Fade-in 애니메이션 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 각 요소별 지연 시간 */
+.title.fade-in {
+  transition-delay: 0.1s;
+}
+
+.commment_content.fade-in {
+  transition-delay: 0.2s;
+}
+
+.comment__container-data.fade-in {
+  transition-delay: 0.3s;
+}
+
+.share-section.fade-in {
+  transition-delay: 0.4s;
+}
+
+.modal__input-password {
+    padding: 5px 10px;
+    width: 250px;
+}
+
+.modal__delete {
+    padding: 15px 0;
+}
+
+body, .bc-pink.container {
+  background: #f7f8fa url('https://www.transparenttextures.com/patterns/symphony.png');
+  min-height: 100vh;
+  padding: 40px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #2d3557;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.commment_content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 32px 0;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  gap: 8px;
+}
+.commment_content input {
+  font-size: 1rem;
+  font-family: 'NanumMyeongjo', serif;
+  margin: 3px;
+  padding: 10px;
+  width: 120px;
+  border-radius: 7px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+}
+.comment__message {
+  margin-top: 5px;
+  padding: 12px;
+  width: 100%;
+  min-height: 60px;
+  font-family: 'NanumMyeongjo', serif;
+  font-size: 1.05rem;
+  border: 1px solid #e0e3e8;
+  border-radius: 10px;
+  background: #fff;
+  resize: none;
+}
+.comment__btn {
+  font-size: 1.08rem;
+  margin-top: 10px;
+  background-color: #2d3557;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 0;
+  width: 100%;
+  max-width: 420px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.comment__btn:hover {
+  background-color: #1a2036;
+}
+
+.comment__container-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  gap: 18px;
+}
+.comment__data {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+  padding: 18px 20px 14px 20px;
+  position: relative;
+  word-break: break-all;
+  width: 100%;
+  margin: 0;
+}
+.comment__data-p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.comment__data-pp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.comment__date {
+  color: #b0b4c0;
+  font-size: 0.95rem;
+  margin-left: auto;
+}
+.comment__btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #b0b4c0;
+  margin-left: 6px;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+  align-self: flex-end;
+}
+.comment__btn-close:hover {
+  color: #e57373;
+}
+.comment__data-com {
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  white-space: pre-line;
+  margin-top: 2px;
+  text-align: left;
+}
+
+.comment__btn-more {
+  margin-top: 18px;
+  width: 100%;
+  max-width: 420px;
+  height: 44px;
+  background: #fff;
+  color: #2d3557;
+  border: 2px solid #2d3557;
+  border-radius: 24px;
+  font-size: 1.08rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.comment__btn-more:hover {
+  background: #f0f1f5;
+}
+
+/* 카카오톡 채팅방 스타일 */
+.kakao-chat-bg {
+  background: #e5e5e5;
+  width: 100%;
+  min-height: 320px;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 18px;
+}
+
+.kakao-chat-list {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kakao-chat-item {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  position: relative;
+}
+
+.kakao-chat-item.me {
+  flex-direction: row-reverse;
+}
+.kakao-chat-item.me .kakao-bubble-group {
+  align-items: flex-end;
+}
+
+.kakao-chat-item.other {
+  flex-direction: row;
+}
+.kakao-chat-item.other .kakao-bubble-group {
+  align-items: flex-start;
+}
+
+.kakao-bubble.me {
+  background: #ffe100;
+  color: #222;
+  border-radius: 18px 18px 4px 18px;
+  align-self: flex-end;
+}
+
+.kakao-bubble.other {
+  background: #fff;
+  color: #222;
+  border-radius: 18px 18px 18px 4px;
+  align-self: flex-start;
+}
+
+.kakao-time {
+  align-self: flex-end;
+}
+
+/* 말풍선 순차 애니메이션 */
+.chat-bubble-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.chat-bubble-animation.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.kakao-bubble-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.kakao-name {
+  font-size: 0.92rem;
+  color: #888;
+  margin-bottom: 2px;
+  margin-left: 4px;
+}
+
+.kakao-bubble {
+  background: #fff;
+  border-radius: 18px 18px 18px 4px;
+  padding: 10px 16px;
+  font-size: 1.05rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  margin-bottom: 2px;
+  max-width: 220px;
+  word-break: break-all;
+  position: relative;
+}
+
+.kakao-time {
+  font-size: 0.8rem;
+  color: #bbb;
+  margin-left: 6px;
+  margin-bottom: 2px;
+  align-self: flex-end;
+}
+
+/* 공유하기 섹션 스타일 */
+.share-section {
+  margin-top: 32px;
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.share-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: #333;
+}
+
+.share-btn img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.kakao-share {
+  background: #ffe100;
+  color: #333;
+}
+
+.kakao-share:hover {
+  background: #f4d800;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 225, 0, 0.3);
+}
+
+.url-copy {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  color: #495057;
+}
+
+.url-copy:hover {
+  background: #e9ecef;
+  border-color: #dee2e6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.url-copy.success {
+  background: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.copy-icon {
+  font-size: 1.1rem;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 600px) {
+  .commment_content, .comment__container-data, .comment__btn, .comment__btn-more {
+    max-width: 98vw;
+  }
+  .comment__data {
+    padding: 14px 8vw 10px 8vw;
+  }
+  .share-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .share-btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kakao-chat-list {
+    max-width: 98vw;
+  }
+  .kakao-bubble {
+    max-width: 70vw;
+  }
+}

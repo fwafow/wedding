@@ -1,0 +1,537 @@
+/* Fade-in 애니메이션 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 각 요소별 지연 시간 */
+.title.fade-in {
+  transition-delay: 0.1s;
+}
+
+.gallery-main-container.fade-in {
+  transition-delay: 0.2s;
+}
+
+.gallery-thumbnails-container.fade-in {
+  transition-delay: 0.3s;
+}
+
+/* ===== 스크롤 갤러리 스타일 ===== */
+.bc-pink.container {
+  padding-top: 20px;
+  background: #fff;
+}
+.gallery-main-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.gallery-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* PC 기본값 - 타원형 거울, 세로로 길게 */
+.gallery-image-wrapper {
+  width: 320px;
+  height: 520px;
+  border-radius: 50% / 70%;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .gallery-image-wrapper {
+    width: 85vw;       /* 화면 너비의 85% */
+    height: 130vw;     /* 세로로 더 길게 */
+    max-width: 350px;  /* 최대 너비 제한 */
+    max-height: 600px; /* 최대 높이 제한 */
+    min-width: 220px;  /* 최소 너비 보장 */
+    min-height: 350px; /* 최소 높이 보장 */
+    border-radius: 50% / 70%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  .gallery-main-image {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+  }
+  
+  /* 모바일 전체화면 모달 */
+  .image-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .image-popup-container {
+    position: relative;
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-popup-image {
+    max-width: 100vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  .image-popup-close {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    bottom: 18px;
+  }
+  
+  .image-popup-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .image-popup-prev {
+    left: 10px;
+  }
+  
+  .image-popup-next {
+    right: 10px;
+  }
+  
+  .image-popup-counter {
+    bottom: 10px;
+  }
+  
+  .image-popup-thumbnails {
+    margin-top: 10px;
+    padding: 8px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    max-width: 95vw;
+  }
+  
+  .image-popup-thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .image-popup-thumbnail {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 작은 모바일 화면 (iPhone SE 등) */
+@media (max-width: 375px) {
+  .gallery-image-wrapper {
+    width: 90vw;
+    height: 135vw;
+    max-width: 300px;
+    max-height: 550px;
+    min-width: 250px;
+    min-height: 350px;
+    border-radius: 50% / 70%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  
+  .image-popup-close {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    bottom: 15px;
+  }
+  
+  .image-popup-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+  
+  .image-popup-thumbnail {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* 중간 크기 모바일 (iPhone 12/13/14 등) */
+@media (min-width: 376px) and (max-width: 414px) {
+  .gallery-image-wrapper {
+    width: 80vw;
+    height: 125vw;
+    max-width: 320px;
+    max-height: 580px;
+    min-width: 280px;
+    border-radius: 50% / 70%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+}
+
+/* 큰 모바일 (iPhone Plus, Galaxy 등) */
+@media (min-width: 415px) and (max-width: 768px) {
+  .gallery-image-wrapper {
+    width: 75vw;
+    height: 120vw;
+    max-width: 350px;
+    max-height: 600px;
+    min-width: 300px;
+    border-radius: 50% / 70%;
+    overflow: hidden;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+}
+
+.gallery-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: inherit;
+}
+
+.gallery-main-image:hover {
+  transform: scale(1.02);
+}
+
+.gallery-index {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.gallery-thumbnails-container {
+  margin-top: 15px;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 0;
+  max-width: 100%;
+}
+
+.gallery-thumbnail {
+  width: 100%;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  opacity: 0.7;
+}
+
+.gallery-thumbnail:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.gallery-thumbnail.active {
+  border-color: var(--primary-color);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 기존 react-image-gallery 스타일 제거 */
+.image-gallery {
+  display: none;
+}
+
+/* ===== 이미지 팝업 모달 스타일 ===== */
+.image-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  /* 캡처 방지 스타일 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.image-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-popup-container {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* 팝업 스크롤 컨테이너 */
+.image-popup-scroll-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: auto;
+  width: 100%;
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+.image-popup-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.image-popup-image-wrapper {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+}
+
+.image-popup-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 0; /* <= 이 부분이 중요! */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* 캡처 방지 스타일 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  pointer-events: none; /* 이미지 드래그 방지 */
+}
+/* 팝업 썸네일 영역 */
+.image-popup-thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  max-width: 90vw;
+}
+
+.image-popup-thumbnails::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.image-popup-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  opacity: 0.6;
+}
+
+.image-popup-thumbnail:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.image-popup-thumbnail.active {
+  border-color: var(--primary-color);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* 전체화면 닫기 버튼 아래 중앙 */
+.image-popup-close {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  top: unset;
+  right: unset;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.95);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.image-popup-close:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.image-popup-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.image-popup-nav:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.image-popup-prev {
+  left: -70px;
+}
+
+.image-popup-next {
+  right: -70px;
+}
+
+.image-popup-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .gallery-main-image {
+    height: auto;
+  }
+  
+  .gallery-thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* 모바일 전체화면 모달 스크롤 컨테이너 */
+  .image-popup-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: auto;
+    width: 100%;
+    max-width: 100vw;
+    max-height: 80vh;
+  }
+  
+  .image-popup-thumbnails::-webkit-scrollbar {
+    display: none;
+  }
+}

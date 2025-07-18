@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.cover-root {
+  min-height: 100vh;
+  background: #232b3b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 수직 골드라인: 페이지 전체 세로 중앙에 고정 */
+.cover-root::before,
+.cover-root::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e6c97b;
+  border-radius: 1px;
+  z-index: 1;
+}
+.cover-root::before {
+  left: 50%;
+  transform: translateX(-180px); /* Invitation/cover-card 기준 좌측 */
+}
+.cover-root::after {
+  left: 50%;
+  transform: translateX(180px); /* Invitation/cover-card 기준 우측 */
+}
+
+@media (max-width: 600px) {
+  .cover-root::before {
+    transform: translateX(-44vw);
+  }
+  .cover-root::after {
+    transform: translateX(44vw);
+  }
+}
+
+/* 하트 애니메이션 */
+.cover-heart-anim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; height: 100vh;
+  animation: heart-pop 6s cubic-bezier(.68,-0.55,.27,1.55); /* 2s * 3 */
+}
+@keyframes heart-pop {
+  0% { transform: scale(0.2); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.cover-heart {
+  font-size: 3.5rem;
+  animation: heartbeat 7.2s infinite; /* 2.4s * 3 */
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1);}
+  20% { transform: scale(1.2);}
+  40% { transform: scale(0.95);}
+  60% { transform: scale(1.1);}
+  80% { transform: scale(0.98);}
+}
+
+/* 이름 타이핑에서 사용하는 하트 */
+.cover-heart-names {
+  font-size: 2.2rem; /* 이름과 동일한 크기 */
+  animation: heartbeat 7.2s infinite; /* 2.4s * 3 */
+  margin: 0 0.6rem; /* 좌우 여백 조정 */
+  vertical-align: middle; /* 세로 정렬 */
+}
+
+/* 이름 타이핑 */
+.cover-names {
+  font-size: 2.2rem;
+  color: #fff;
+  font-family: 'Nanum Myeongjo', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 10vh;
+  animation: fadein 4.2s; /* 1.4s * 3 */
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* 카드 */
+.cover-card {
+  width: 92vw;
+  max-width: 420px;
+  min-height: 68vh;
+  background: #232b3b;
+  border: 2px solid #e6c97b;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  color: #e6c97b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 28px 36px 28px;
+  animation: card-fadein 6.6s; /* 2.2s * 3 */
+  position: relative;
+  letter-spacing: 0.01em;
+  transition: opacity 4.8s; /* 1.6s * 3 */
+  z-index: 2;
+}
+.cover-card.fade-in { opacity: 1; transition: opacity 4.2s; } /* 1.4s * 3 */
+.cover-card.fade-out { opacity: 0; transition: opacity 4.8s; } /* 1.6s * 3 */
+
+@keyframes card-fadein {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.cover-card-top {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.cover-card-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.0rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
+  color: #e6c97b;
+}
+.cover-card-sub {
+  font-size: 1.05rem;
+  font-family: 'Nanum Myeongjo', serif;
+  opacity: 0.85;
+  color: #e6c97b;
+}
+.cover-card-names {
+  font-size: 1.7rem;
+  font-family: 'Nanum Myeongjo', serif;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  color: #e6c97b;
+}
+.cover-card-mainname {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Nanum Myeongjo', serif;
+  color: #e6c97b;
+}
+.cover-card-and {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+  opacity: 0.8;
+  color: #e6c97b;
+}
+.cover-card-info {
+  font-size: 1.13rem;
+  font-family: 'Nanum Myeongjo', serif;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  line-height: 1.7;
+  color: #e6c97b;
+}
+.cover-card-bottom {
+  font-size: 0.95rem;
+  font-family: 'Nanum Myeongjo', serif;
+  opacity: 0.7;
+  margin-top: 2.5rem;
+  color: #e6c97b;
+}
+
+/* 사진 */
+.cover-main-photo {
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  opacity: 0;
+  animation: photo-fadein 2.4s forwards;
+  margin-top: 16px;
+}
+.cover-photo-fadein {
+  opacity: 1;
+}
+@keyframes photo-fadein {
+  from { opacity: 0; transform: scale(1.08);}
+  to { opacity: 1; transform: scale(1);}
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  .cover-card { padding: 20vw 4vw 10vw 4vw; min-height: 60vw; }
+  .cover-main-photo { width: 90vw; height: 90vw; max-width: 340px; max-height: 340px;}
+  .cover-card-script { font-size: 2.8rem; }
+  .cover-card-names { font-size: 1.2rem; }
+  .cover-card-mainname { font-size: 1.3rem; }
+  .cover-card-info { font-size: 0.95rem; }
+}
+
+.invitation-box {
+  z-index: 2;
+}
+

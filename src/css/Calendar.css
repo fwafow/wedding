@@ -1,0 +1,306 @@
+.calendar-page {
+  width: 100vw;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 16px;
+  box-sizing: border-box;
+}
+
+.calendar__month-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 2.1rem;
+  font-family: 'NanumMyeongjo', serif;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.calendar__month {
+  font-size: 2.1rem;
+  color: #232b3b;
+  font-weight: 400;
+  margin-right: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.calendar__month-corner {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.calendar__month-corner-bg {
+  position: absolute;
+  right: 0; bottom: 0;
+  width: 38px; height: 38px;
+  background: #e6c97b; /* 금색으로 변경 */
+  color: #232b3b; /* 글자색을 검은색으로 변경 */
+  font-size: 1.25rem;
+  font-family: 'NanumMyeongjo', serif;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  padding: 0 7px 2px 0;
+  box-sizing: border-box;
+}
+
+.calendar__body {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 32px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* 요일 헤더 스타일 */
+.calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.7em;
+  width: 100%;
+  margin-bottom: 0.7em;
+  min-width: max-content;
+}
+
+.calendar__weekday {
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-family: 'NanumMyeongjo', serif;
+  color: #232b3b;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+.calendar__weekday.red {
+  color: #e74c3c;
+}
+
+.calendar__weekday.blue {
+  color: #3498db;
+}
+.calendar__days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.7em;
+  width: 100%;
+  margin-top: 1em;
+  min-width: max-content;
+}
+.calendar__day {
+  width: 2.5em;
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  font-family: 'NanumMyeongjo', serif;
+  color: #232b3b; /* 모든 글자색을 검은색으로 통일 */
+  border-radius: 50%;
+  background: none;
+  transition: background 0.2s, color 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.calendar__day.red {
+  color: #e74c3c; /* 일요일과 공휴일 빨간색 */
+}
+.calendar__day.blue {
+  color: #3498db; /* 토요일 파란색 */
+}
+.calendar__day.selected {
+  background: transparent;
+  color: #232b3b;
+  font-weight: bold;
+  border: 2px solid #232b3b;
+}
+
+/* 웨딩데이 스타일 */
+.wedding-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.wedding-heart {
+  font-size: 0.8rem;
+  line-height: 1;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.wedding-date {
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: bold;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.calendar__d-day-box {
+  width: 420px;
+  max-width: 98vw;
+  height: 120px;
+  margin: 36px auto 0 auto;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calendar__d-day-bg {
+  position: absolute;
+  inset: 0;
+  background: url('/src/images/backGround.jpg') center center/cover no-repeat;
+  opacity: 0.5;
+  z-index: 1;
+}
+.calendar__d-day-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.calendar__d-day-main {
+  font-size: 2rem;
+  font-family: 'NanumMyeongjo', serif;
+  color: #232b3b;
+  font-style: italic;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
+  padding: 8px 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.calendar__d-day-sub {
+  font-size: 1.1rem;
+  color: #232b3b; /* 검은색으로 변경 */
+  font-family: 'NanumMyeongjo', serif;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* 비디오 컨테이너 스타일 */
+.calendar__video-container {
+  width: 100%;
+  max-width: 420px;
+  margin: 24px auto 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.calendar__video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* 요일/날짜 셀 공통 스타일 */
+.calendar__weekday,
+.calendar__day {
+  width: 100%;
+  aspect-ratio: 1/1;
+  min-width: 2.2em;
+  min-height: 2.2em;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  font-family: 'NanumMyeongjo', serif;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .calendar__month-title {
+    font-size: 1.2rem;
+  }
+  .calendar__month {
+    font-size: 1.2rem;
+  }
+  .calendar__month-corner, .calendar__month-corner-bg {
+    width: 28px; height: 28px; font-size: 0.95rem;
+  }
+  .calendar__body, .calendar__d-day-box {
+    max-width: 98vw;
+    width: 98vw;
+  }
+  .calendar__weekday {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.9em;
+  }
+  .calendar__day {
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1em;
+  }
+  .calendar__d-day-main {
+    font-size: 1.1rem;
+    padding: 4px 10vw;
+  }
+  .calendar__d-day-sub {
+    font-size: 0.95rem;
+  }
+  .calendar__video-container {
+    max-width: 98vw;
+    margin: 16px auto 0 auto;
+  }
+  .calendar__weekdays {
+    gap: 0.3em;
+    margin-bottom: 0.3em;
+  }
+  .calendar__days-grid {
+    gap: 0.3em;
+    margin-top: 0.5em;
+  }
+}

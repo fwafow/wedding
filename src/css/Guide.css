@@ -1,0 +1,141 @@
+/* 안내사항 페이지 스타일 */
+.container {
+  min-height: unset;
+  padding: 0 0 10px 0;
+}
+
+.guide-section {
+  margin-top: 8px;
+  padding: 0 10px;
+}
+
+.guide-item {
+  padding: 6px;
+  margin-bottom: 6px;
+}
+
+.guide-title {
+  margin-bottom: 4px;
+}
+
+.guide-content {
+  padding: 6px;
+}
+
+.guide-content-inner {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.guide-line {
+  margin-bottom: 3px;
+}
+
+/* 탭 버튼들 */
+.guide-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.guide-tab {
+  background: #2d3557;
+  border: 2px solid #e6c97b;
+  border-radius: 25px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'NanumMyeongjo', serif;
+  min-width: 100px;
+}
+
+.guide-tab:hover {
+  background: #3d4567;
+  border-color: #e6c97b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(45, 53, 87, 0.3);
+}
+
+.guide-tab.active {
+  background: #2d3557;
+  color: white;
+  border: 2px solid #e6c97b;
+  box-shadow: 0 4px 15px rgba(230, 201, 123, 0.4);
+}
+
+/* 내용 영역 */
+.guide-content {
+  background: white;
+  border: 2px solid #e6c97b;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(45, 53, 87, 0.1);
+  animation: contentFadeIn 0.3s ease;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.guide-content-inner {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  font-family: 'NanumMyeongjo', serif;
+}
+
+.guide-line {
+  margin-bottom: 6px;
+}
+
+.guide-line:last-child {
+  margin-bottom: 0;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .guide-section {
+    padding: 0 6px;
+  }
+  .guide-item {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  .guide-title {
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+  }
+  .guide-content {
+    padding: 5px;
+  }
+  .guide-content-inner {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .guide-tabs {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .guide-tab {
+    min-width: 80px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,205 @@
+:root {
+  /* 기본 테마 변수 (로맨틱 & 감성) */
+  --primary-color: #E91E63;
+  /*--secondary-color: #FF69B4;*/
+  --secondary-color: #e6c97b;
+  /*--background-color: #FFF0F5;*/
+  --text-color: #4A4A4A;
+  --accent-color: #232b3b;
+  --border-color: #e6c97b;
+  --heading-font: 'GangwonEdu_OTFBoldA', cursive;
+  --body-font: 'GangwonEdu', cursive;
+}
+
+/* 모바일 전체 화면 설정 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  background: url('/src/images/backGround.jpg') center center/cover no-repeat fixed;
+  transition: all 0.3s ease;
+  min-height: 100vh;
+  width: 100%;
+}
+
+body, .bc-pink, .container {
+  background: transparent !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('fonts/강원교육모두_Bold.woff')  format('woff');
+}
+
+@font-face {
+  font-family: 'GangwonEdu';
+  src: url('fonts/강원교육모두_Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'BookkMyungjo-Bd';
+  src: url('fonts/부크크명조_굵은글씨.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'BookkMyungjo';
+  src: url('fonts/부크크명조_얇은글씨.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('fonts/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('fonts/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url('fonts/NanumMyeongjo.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GangwonEdu_New';
+  src: url('fonts/강원교육새음.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GangwonEdu_Strong';
+  src: url('fonts/강원교육튼튼.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GangwonEdu_Hyunok';
+  src: url('fonts/강원교육현옥샘.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 테마별 공통 스타일 */
+.container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.title {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.bc-pink {
+  background-color: var(--background-color) !important;
+  transition: all 0.3s ease;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* 버튼 스타일 */
+button {
+  background-color: #2d3557;
+  color: white;
+  border: 2px solid #2d3557;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #3d4567;
+  border-color: #3d4567;
+}
+
+/* 입력 필드 스타일 */
+input, textarea {
+  border: 2px solid var(--border-color);
+  background-color: white;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.invitation-box {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44,62,80,0.07);
+  max-width: 420px;
+  margin: 48px auto 32px auto;
+  padding: 48px 32px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 모바일 반응형 설정 */
+@media (max-width: 600px) {
+  html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  body {
+    min-height: 100vh;
+    width: 100vw;
+  }
+  
+  .container, .bc-pink {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  .invitation-box {
+    max-width: 98vw;
+    padding: 24px 4vw 18px 4vw;
+  }
+}
+
+/* iOS Safari 대응 */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+  
+  .container, .bc-pink {
+    min-height: -webkit-fill-available;
+  }
+}

@@ -1,0 +1,109 @@
+/* .invitation-box {
+  background: #fff;
+  border: 1.5px solid #e6c97b;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.04);
+  max-width: 420px; /* cover-card와 동일하게 */
+  /*width: 100%;
+  margin: 0 auto 32px auto; 
+  padding: 90px 32px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2; 
+} */
+.invitation-box {
+  min-height: 100vh;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.invitation-box::before,
+.invitation-box::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e6c97b;
+  border-radius: 1px;
+  z-index: 1;
+}
+.invitation-box::before {
+  left: 50%;
+  transform: translateX(-180px); /* Invitation/cover-card 기준 좌측 */
+}
+.invitation-box::after {
+  left: 50%;
+  transform: translateX(180px); /* Invitation/cover-card 기준 우측 */
+}
+
+.invitation__title {
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  margin-bottom: 32px;
+  color: #232b3b;
+  font-family: 'NanumMyeongjo', serif,bold;
+}
+
+.invitation__content {
+  font-size: 1.08rem;
+  color: #232b3b;
+  line-height: 2.1;
+  margin-bottom: 38px;
+  font-family: 'NanumMyeongjo', serif;
+}
+
+.invitation__family-list {
+  margin-top: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.invitation__family-info {
+  font-size: 1.08rem;
+  color: #232b3b;
+  font-family: 'NanumMyeongjo', serif;
+  margin-bottom: 4px;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .invitation-box {
+    max-width: 98vw;
+    padding: 18px 4vw 18px 4vw;
+  }
+  .invitation__title {
+    font-size: 1.08rem;
+    margin-bottom: 22px;
+  }
+  .invitation__content {
+    font-size: 0.98rem;
+    margin-bottom: 24px;
+  }
+  .invitation__family-info {
+    font-size: 0.98rem;
+  }
+}
+  
+  .invitation__btn-contact {
+    font-family: 'NanumMyeongjo', serif;
+    font-size: x-large;
+    margin-top: 30px;
+    border: 1px solid rgb(134, 128, 128);
+    background-color: transparent;
+    border-radius: 30px;
+    padding: 10px 50px;
+  }
+
+  .invitation__btn-contact:hover {
+      background-color: rgb(255, 255, 255);
+  }
+  

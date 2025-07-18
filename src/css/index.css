@@ -1,0 +1,8 @@
+body, html, .App {
+  font-family: 'NanumMyeongjo', serif;
+}
+
+/* cover-card-script는 예외로 유지 */
+.cover-card-script {
+  font-family: 'Dancing Script', cursive;
+} 

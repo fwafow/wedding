@@ -1,0 +1,124 @@
+.letter-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(255,255,255,0.97);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.7s;
+  animation: fadeOut 1s 1.2s forwards;
+}
+@keyframes fadeOut {
+  to { opacity: 0; pointer-events: none; }
+}
+.letter-envelope.scroll-open {
+  width: 340px;
+  height: 240px;
+  position: relative;
+  perspective: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.letter-envelope.scroll-open .envelope-flap-top,
+.letter-envelope.scroll-open .envelope-flap-bottom,
+.letter-envelope.scroll-open .envelope-flap-left,
+.letter-envelope.scroll-open .envelope-flap-right {
+  transition: transform 1.2s cubic-bezier(.77,0,.18,1);
+}
+.letter-envelope.scroll-open .envelope-flap-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, #f5e6c8 80%, #e2cfa3 100%);
+  border-radius: 16px 16px 0 0;
+  border-bottom: 2px solid #d2b48c;
+  z-index: 4;
+  transform-origin: top;
+  box-shadow: 0 4px 16px rgba(139, 69, 19, 0.08);
+  transform: rotateX(0deg);
+}
+.letter-envelope.scroll-open.opened .envelope-flap-top {
+  transform: rotateX(-120deg);
+}
+.letter-envelope.scroll-open .envelope-flap-bottom {
+  position: absolute;
+  left: 40px; right: 40px; bottom: 0;
+  height: 40px;
+  background: linear-gradient(0deg, #f5e6c8 80%, #e2cfa3 100%);
+  border-radius: 0 0 16px 16px;
+  border-top: 2px solid #d2b48c;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.06);
+  transform-origin: bottom;
+  transform: rotateX(0deg);
+}
+.letter-envelope.scroll-open.opened .envelope-flap-bottom {
+  transform: rotateX(120deg);
+}
+.letter-envelope.scroll-open .envelope-flap-left {
+  position: absolute;
+  left: 0; top: 60px; bottom: 30px;
+  width: 40px;
+  background: linear-gradient(90deg, #f5e6c8 80%, #e2cfa3 100%);
+  border-radius: 0 0 0 24px;
+  border-right: 2px solid #d2b48c;
+  z-index: 2;
+  box-shadow: -2px 2px 8px rgba(139, 69, 19, 0.06);
+  transform-origin: left;
+  transform: rotateY(0deg);
+}
+.letter-envelope.scroll-open.opened .envelope-flap-left {
+  transform: rotateY(-110deg);
+}
+.letter-envelope.scroll-open .envelope-flap-right {
+  position: absolute;
+  right: 0; top: 60px; bottom: 30px;
+  width: 40px;
+  background: linear-gradient(270deg, #f5e6c8 80%, #e2cfa3 100%);
+  border-radius: 0 0 24px 0;
+  border-left: 2px solid #d2b48c;
+  z-index: 2;
+  box-shadow: 2px 2px 8px rgba(139, 69, 19, 0.06);
+  transform-origin: right;
+  transform: rotateY(0deg);
+}
+.letter-envelope.scroll-open.opened .envelope-flap-right {
+  transform: rotateY(110deg);
+}
+.letter-paper-body {
+  position: absolute;
+  top: 60px; left: 40px; right: 40px; bottom: 30px;
+  background: #fffbe9;
+  border: 2px solid #d2b48c;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 32px rgba(139, 69, 19, 0.10);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+.center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  color: #7b5b2b;
+  font-family: 'NanumMyeongjo', serif;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+}
+.letter-scroll-guide {
+  color: #bfa16b;
+  font-size: 1.1em;
+  text-align: center;
+  opacity: 0.85;
+  animation: scrollGuideFade 1.2s infinite alternate;
+}
+@keyframes scrollGuideFade {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+} 

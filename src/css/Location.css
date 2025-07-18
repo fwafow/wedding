@@ -1,0 +1,247 @@
+/* Fade-in 애니메이션 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 각 요소별 지연 시간 */
+.title.fade-in {
+  transition-delay: 0.1s;
+}
+
+.location__details.fade-in {
+  transition-delay: 0.2s;
+}
+
+.location__map.fade-in {
+  transition-delay: 0.3s;
+}
+
+.location__map-icon-box.fade-in {
+  transition-delay: 0.4s;
+}
+
+.location__transport-info.fade-in {
+  transition-delay: 0.5s;
+}
+
+ .location__details {
+    margin: 15px 0;
+    font-size: x-large;
+    color: var(--text-color);
+  }
+
+  .location__details div {
+    margin-bottom: 10px;
+  }
+
+  .location__map-icon-box {
+  padding: 5px 0;
+  margin-bottom: 20px;
+  width: 340px;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--background-color);
+  border: 2px solid #e6c97b;
+  border-radius: 8px;
+}
+
+  .location__map-icon {
+    width: 30px;
+  }
+
+  .location__copy-icon {
+    font-size: 24px;
+    margin-right: 5px;
+  }
+
+  .location__map-item:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+ .location__map-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+ } 
+
+ .location__map-item span {
+    margin-left: 10px;
+    font-size: large;
+ }
+
+  .location__map {
+  width: 340px;
+  height: 340px;
+  border: 2px solid #e6c97b;
+  border-radius: 8px;
+}
+
+  .location__info {
+    width: 300px;
+    text-align: left;
+    font-size: 1.4em;
+    color: var(--text-color);
+  }
+
+  .location__info div {
+    margin-bottom: 7px;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+/* 찾아오시는 길 정보 스타일 */
+.location__transport-info {
+  margin-top: 20px;
+  width: 340px;
+}
+
+/* 탭 스타일 */
+.location__tabs {
+  display: flex;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 1px;
+  gap: 2px;
+}
+
+.location__tab {
+  flex: 1;
+  padding: 8px 2px;
+  border: 2px solid #e6c97b;
+  background-color: #2d3557;
+  border-radius: 6px;
+  font-size: 0.5em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.location__tab:hover {
+  background-color: #3d4567;
+  border-color: #e6c97b;
+}
+
+.location__tab.active {
+  background-color: #2d3557;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #e6c97b;
+}
+
+.location__section {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  border: 2px solid #e6c97b;
+}
+
+.location__section h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.location__subway p,
+.location__bus p,
+.location__parking p {
+  margin: 5px 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.location__ktx p {
+  margin: 5px 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.location__ktx-stop {
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  border-left: 3px solid #1976d2;
+}
+
+.location__ktx-stop:last-child {
+  margin-bottom: 0;
+}
+
+.location__ktx-route {
+  margin: 10px 0;
+  padding: 8px;
+  background-color: rgba(25, 118, 210, 0.1);
+  border-radius: 4px;
+}
+
+.location__ktx-note {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: rgba(255, 193, 7, 0.1);
+  border-radius: 4px;
+  border-left: 3px solid #ffc107;
+}
+
+.location__bus-stop {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  border-left: 3px solid #1976d2;
+}
+
+.location__bus-stop:last-child {
+  margin-bottom: 0;
+}
+
+.location__bus-routes {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.location__bus-routes p {
+  margin: 3px 0;
+  font-size: 0.9em;
+}
+
+.location__parking {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  border-radius: 6px;
+  border-left: 3px solid #1976d2;
+}
+
+.location__parking-info {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.location__parking-alternative {
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 3px solid #4caf50;
+}
