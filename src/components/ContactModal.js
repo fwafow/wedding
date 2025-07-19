@@ -56,8 +56,9 @@ function ContactModal({closeModal}) {
             </div>
           ))}
         </div>
+        {/* 신부 측 연락처 (주석 처리됨)
         <div className="contact__boxes">
-        {/*[...brideContact].map((contact, index) => (
+          {[...brideContact].map((contact, index) => (
             <div key={index} className="contact__box">
               <span>{contact.person}</span>
               <div className="contact__icons">
@@ -71,6 +72,7 @@ function ContactModal({closeModal}) {
             </div>
           ))}
         </div>
+        */}
         
         {/* 닫기 버튼 */}
         <div style={{ 
