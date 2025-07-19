@@ -6,6 +6,7 @@
   GENERATE_SOURCEMAP = "false"
   NODE_OPTIONS = "--max-old-space-size=4096"
   NODE_VERSION = "18"
+  CI = "false"
 
 [[redirects]]
   from = "/*"
