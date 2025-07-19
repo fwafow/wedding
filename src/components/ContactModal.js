@@ -29,11 +29,11 @@ function ContactModal({closeModal}) {
     { person: "어머니 이송자", phone: "01090172337" },
   ];
 
-  const brideContact = [
+  /*const brideContact = [
     { person: "신부 임성하", phone: "01074871259" },
     { person: "아버지 임환택", phone: "01050698285" },
     { person: "어머니 심미옥", phone: "01043000060" },
-  ];
+  ];*/
 
 
   return (
@@ -57,7 +57,7 @@ function ContactModal({closeModal}) {
           ))}
         </div>
         <div className="contact__boxes">
-        {[...brideContact].map((contact, index) => (
+        {/*[...brideContact].map((contact, index) => (
             <div key={index} className="contact__box">
               <span>{contact.person}</span>
               <div className="contact__icons">

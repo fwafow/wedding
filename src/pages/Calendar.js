@@ -59,7 +59,10 @@ export default function Calendar() {
   };
 
   const handleVideoError = (error) => {
-    console.log('비디오 로딩 에러:', error);
+    console.error('비디오 로딩 에러:', error);
+    console.error('비디오 요소:', videoRef.current);
+    console.error('비디오 네트워크 상태:', videoRef.current?.networkState);
+    console.error('비디오 준비 상태:', videoRef.current?.readyState);
   };
 
   return (
@@ -116,10 +119,11 @@ export default function Calendar() {
           muted
           loop
           playsInline
+          preload="metadata"
           onLoadedMetadata={handleVideoLoad}
           onError={handleVideoError}
         >
-          <source src="/20250602_114141.mp4" type="video/mp4" />
+          <source src="/images/20250602_114141.mp4" type="video/mp4" />
           브라우저가 비디오를 지원하지 않습니다.
         </video>
       </div>

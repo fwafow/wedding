@@ -38,18 +38,18 @@ function ContactButton({ person, account, kakaopay }) {
 
 
   function Account() {
-    const [selectedSide, setSelectedSide] = useState(null);
+    const [selectedSide, setSelectedSide] = useState('groom');
     const groom_contact = [
       { person: "신랑 김일도", account: "국민은행 08370104059132" },
       { person: "아버지 김계웅", account: "농협 68602056951" },
       { person: "어머니 이송자", account: "농협은행 20503056069290" },
     ];
 
-    const bride_contact = [
+    /*const bride_contact = [
         { person: "신부 임성하", account: "국민은행53880101507091 " },
         { person: "아버지 임환택", account: "기업은행 0000"},
         { person: "어머니 심미옥", account: "기업은행 21402819802019" },
-      ];
+      ];*/
   
     return (
       <div className="container">
@@ -72,13 +72,13 @@ function ContactButton({ person, account, kakaopay }) {
             ))}
           </div>
         )}
-        {selectedSide === 'bride' && (
+        {/*selectedSide === 'bride' && (
           <div className="contact__boxes">
             {bride_contact.map((contact, index) => (
               <ContactButton key={index} {...contact} />
             ))}
           </div>
-        )}
+        )}*/}
         <div className="contact__guide-text">아이콘을 클릭하시면 계좌번호를 확인할 수 있습니다.</div>
       </div>
     );

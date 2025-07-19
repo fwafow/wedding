@@ -51,13 +51,13 @@ export default function Cover({ onFinish }) {
       )} */}
 
       {/* 2. 이름 타이핑 */}
-      {step === 1 && (
+      {/* step === 1 && (
         <div className="cover-names">
-          <Typewriter text="일도" speed={1080} /> {/* 360 * 3 */}
+          <Typewriter text="일도" speed={1080} />
           <span className="cover-heart cover-heart-names">❤️</span>
-          <Typewriter text="성하" speed={1080} onDone={handleNameDone} /> {/* 360 * 3 */}
+          <Typewriter text="성하" speed={1080} onDone={handleNameDone} />
         </div>
-      )}
+      ) */}
 
       {/* 3. 네이비 카드 */}
       {showCard && (
