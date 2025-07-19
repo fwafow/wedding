@@ -1,45 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-
-function Typewriter({ text, onDone, speed = 720, className = '' }) { // speed 3배 느리게 (240 * 3)
-  const [display, setDisplay] = useState('');
-  useEffect(() => {
-    if (display.length < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplay(text.slice(0, display.length + 1));
-      }, speed);
-      return () => clearTimeout(timeout);
-    } else if (onDone) {
-      onDone();
-    }
-  }, [display, text, speed, onDone]);
-  return <span className={className}>{display}</span>;
-}
-
 export default function Cover({ onFinish }) {
-  const [step, setStep] = useState(1); // 0에서 1로 변경 - 바로 이름 타이핑부터 시작
-  const [showCard, setShowCard] = useState(false);
-  // const [cardFade, setCardFade] = useState(false); // fade-out 제거
-  // const [showPhoto, setShowPhoto] = useState(false);
-  // const [showPhotoTitle, setShowPhotoTitle] = useState(false);
-
-  // 이름 타이핑 끝나면 카드 등장
-  const handleNameDone = () => {
-    setTimeout(() => {
-      setShowCard(true);
-      setStep(2);
-    }, 2400); // 3배 느리게 (800 * 3)
-  };
+  const [showCard, setShowCard] = useState(true);
 
   // 카드 24초 후 onFinish 호출 (3배 느리게)
   useEffect(() => {
-    if (showCard && step === 2) {
+    if (showCard) {
       const t = setTimeout(() => {
         if (onFinish) onFinish();
       }, 24000); // 카드 24초 노출 후 다음 단계 (8000 * 3)
       return () => clearTimeout(t);
     }
-  }, [showCard, step, onFinish]);
+  }, [showCard, onFinish]);
 
   return (
     <div className="cover-root">
